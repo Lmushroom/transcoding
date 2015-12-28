@@ -8,21 +8,21 @@ a{text-decoration: underline;color: #000;}
 </style>
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <script>
-	$(function(){
+$(function(){
+	
+	$("a").on("click",function(){
+		var name = $(".inputVal1").val();
+		var age = $(".inputVal2").val();
+		var profession = $(".inputVal3").val();
+		if(name && age && profession){			
+			var eName = encodeURI(name);
+			var eAge = encodeURI(age);
+			var eProfession = encodeURI(profession);
+			window.location.href = 'decode.html?name='+eName+'&age='+eAge+'&profession='+eProfession;
+		}
 		
-		$("a").on("click",function(){
-			var name = $(".inputVal1").val();
-			var age = $(".inputVal2").val();
-			var profession = $(".inputVal3").val();
-			if(name && age && profession){			
-				var eName = encodeURI(name);
-				var eAge = encodeURI(age);
-				var eProfession = encodeURI(profession);
-				window.location.href = 'decode.html?name='+eName+'&age='+eAge+'&profession='+eProfession;
-			}
-			
-		})
 	})
+})
 </script>
 </head>
 <body>
