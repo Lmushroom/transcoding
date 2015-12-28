@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>decode</title>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+	
+	function urlGet(){
+		var aUrl = window.location.href.split("?");
+		var aGET = new Array();
+		if(aUrl.length > 1){
+			var aBuf = aUrl[1].split("&");
+			for(var i = 0;i<aBuf.length;i++){
+				var aTmp = aBuf[i].split("=");
+				aGET[aTmp[0]] = aTmp[1];
+			}
+		}
+		
+		return aGET;
+	}
+
+	var GET = urlGet();
+	var dName = decodeURI(GET['name']);
+	var dAge = decodeURI(GET['age']);
+	var dPro = decodeURI(GET['profession']);
+	$(".name").html(dName);
+	$(".age").html(dAge);
+	$(".profession").html(dPro);
+})
+</script>
+</head>
+<body>
+	<div class="name"></div>
+	<div class="age"></div>
+	<div class="profession"></div>
+</body>
+</html>
